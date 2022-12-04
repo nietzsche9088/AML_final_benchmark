@@ -1,0 +1,258 @@
+Defaulting test_alpha to train alpha of 0.5
+Defaulting test_lr to train lr 0.01
+Defaulting test_eps to train eps None
+====> ARGS
+Namespace(alpha=0.5, attack_model='autoencoder', avoid_clsmodel_reinitialization=False, batch_size=64, best_threshold=0.1, cls_test_epochs=20, clsmodel='mnist_cnn', data_root='../../data/MNIST', dataset='mnist', epochs=100, epochs_per_external_eval=50, eps=0.3, lr=0.01, lr_atk=0.01, mode='all2one', num_workers=2, path='experiments/', pretensor_transform=False, random_crop=5, random_rotation=10, save_model=False, schedulerC_lambda=0.05, schedulerC_milestones=[30, 60, 90, 150], seed=999, target_label=1, test_alpha=0.5, test_epochs=100, test_eps=0.3, test_lr=0.01, test_n_size=10, test_optimizer='sgd', test_use_train_best=False, test_use_train_last=False, train_epoch=1, use_data_parallel=False, verbose=1)
+Will save test model at experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+Use scratch clsmodel. Load atkmodel state from best training: experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/bestmodel.ckpt
+Loading best model from experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/bestmodel.ckpt
+NetC_MNIST(
+  (conv1): Conv2D(1, 32, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+  (relu1): ReLU()
+  (layer2): MNISTBlock(
+    (bn1): BatchNorm2D(num_features=32, momentum=0.9, epsilon=1e-05)
+    (conv1): Conv2D(32, 64, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+  )
+  (layer3): MNISTBlock(
+    (bn1): BatchNorm2D(num_features=64, momentum=0.9, epsilon=1e-05)
+    (conv1): Conv2D(64, 64, kernel_size=[3, 3], stride=[2, 2], padding=1, data_format=NCHW)
+  )
+  (flatten): Flatten()
+  (linear6): Linear(in_features=1024, out_features=512, dtype=float32)
+  (relu7): ReLU()
+  (dropout8): Dropout(p=0.3, axis=None, mode=upscale_in_train)
+  (linear9): Linear(in_features=512, out_features=10, dtype=float32)
+)
+<paddle.optimizer.momentum.Momentum object at 0x7f7b1c0eb910>
+<paddle.optimizer.lr.MultiStepDecay object at 0x7f7b1c0dfe10>
+====> Post tensor transform
+PostTensorTransform()
+
+POISON-Test [1]: Loss: clean 0.0741 poison 0.0008, Accuracy: clean 0.9757 (best 0.0000) poison 0.9999 (best 0.0000)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [2]: Loss: clean 0.0566 poison 0.0002, Accuracy: clean 0.9816 (best 0.9757) poison 1.0001 (best 0.9999)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   bvar::detail::SamplerCollector::sampling_thread(void*)
+1   bvar::detail::SamplerCollector::run()
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1669750379 (unix time) try "date -d @1669750379" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x1) received by PID 13321 (TID 0x7f763c1a6700) from PID 1 ***]
+
+01)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [6]: Loss: clean 0.0331 poison 0.0001, Accuracy: clean 0.9884 (best 0.9886) poison 1.0001 (best 1.0001)
+
+POISON-Test [7]: Loss: clean 0.0322 poison 0.0001, Accuracy: clean 0.9889 (best 0.9886) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [8]: Loss: clean 0.0325 poison 0.0001, Accuracy: clean 0.9892 (best 0.9889) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [9]: Loss: clean 0.0332 poison 0.0001, Accuracy: clean 0.9885 (best 0.9892) poison 1.0001 (best 1.0001)
+
+POISON-Test [10]: Loss: clean 0.0325 poison 0.0002, Accuracy: clean 0.9895 (best 0.9892) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [11]: Loss: clean 0.0333 poison 0.0001, Accuracy: clean 0.9889 (best 0.9895) poison 1.0001 (best 1.0001)
+
+POISON-Test [12]: Loss: clean 0.0320 poison 0.0001, Accuracy: clean 0.9895 (best 0.9895) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [13]: Loss: clean 0.0327 poison 0.0001, Accuracy: clean 0.9889 (best 0.9895) poison 1.0001 (best 1.0001)
+
+POISON-Test [14]: Loss: clean 0.0308 poison 0.0001, Accuracy: clean 0.9895 (best 0.9895) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [15]: Loss: clean 0.0316 poison 0.0001, Accuracy: clean 0.9899 (best 0.9895) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [16]: Loss: clean 0.0331 poison 0.0003, Accuracy: clean 0.9892 (best 0.9899) poison 1.0001 (best 1.0001)
+
+POISON-Test [17]: Loss: clean 0.0345 poison 0.0001, Accuracy: clean 0.9894 (best 0.9899) poison 1.0001 (best 1.0001)
+
+POISON-Test [18]: Loss: clean 0.0316 poison 0.0000, Accuracy: clean 0.9886 (best 0.9899) poison 1.0001 (best 1.0001)
+
+POISON-Test [19]: Loss: clean 0.0282 poison 0.0000, Accuracy: clean 0.9904 (best 0.9899) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [20]: Loss: clean 0.0320 poison 0.0001, Accuracy: clean 0.9901 (best 0.9904) poison 1.0001 (best 1.0001)
+
+POISON-Test [21]: Loss: clean 0.0288 poison 0.0001, Accuracy: clean 0.9912 (best 0.9904) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [22]: Loss: clean 0.0294 poison 0.0001, Accuracy: clean 0.9912 (best 0.9912) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [23]: Loss: clean 0.0306 poison 0.0000, Accuracy: clean 0.9900 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [24]: Loss: clean 0.0298 poison 0.0001, Accuracy: clean 0.9898 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [25]: Loss: clean 0.0304 poison 0.0002, Accuracy: clean 0.9910 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [26]: Loss: clean 0.0291 poison 0.0001, Accuracy: clean 0.9907 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [27]: Loss: clean 0.0302 poison 0.0001, Accuracy: clean 0.9902 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [28]: Loss: clean 0.0300 poison 0.0001, Accuracy: clean 0.9900 (best 0.9912) poison 1.0001 (best 1.0001)
+
+POISON-Test [29]: Loss: clean 0.0284 poison 0.0000, Accuracy: clean 0.9916 (best 0.9912) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [30]: Loss: clean 0.0308 poison 0.0002, Accuracy: clean 0.9904 (best 0.9916) poison 1.0001 (best 1.0001)
+
+POISON-Test [31]: Loss: clean 0.0280 poison 0.0000, Accuracy: clean 0.9900 (best 0.9916) poison 1.0001 (best 1.0001)
+
+POISON-Test [32]: Loss: clean 0.0264 poison 0.0000, Accuracy: clean 0.9913 (best 0.9916) poison 1.0001 (best 1.0001)
+
+POISON-Test [33]: Loss: clean 0.0277 poison 0.0000, Accuracy: clean 0.9909 (best 0.9916) poison 1.0001 (best 1.0001)
+
+POISON-Test [34]: Loss: clean 0.0263 poison 0.0000, Accuracy: clean 0.9917 (best 0.9916) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [35]: Loss: clean 0.0271 poison 0.0000, Accuracy: clean 0.9914 (best 0.9917) poison 1.0001 (best 1.0001)
+
+POISON-Test [36]: Loss: clean 0.0273 poison 0.0000, Accuracy: clean 0.9918 (best 0.9917) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [37]: Loss: clean 0.0274 poison 0.0000, Accuracy: clean 0.9914 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [38]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9915 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [39]: Loss: clean 0.0270 poison 0.0000, Accuracy: clean 0.9914 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [40]: Loss: clean 0.0266 poison 0.0000, Accuracy: clean 0.9917 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [41]: Loss: clean 0.0258 poison 0.0000, Accuracy: clean 0.9917 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [42]: Loss: clean 0.0269 poison 0.0000, Accuracy: clean 0.9916 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [43]: Loss: clean 0.0270 poison 0.0000, Accuracy: clean 0.9913 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [44]: Loss: clean 0.0273 poison 0.0000, Accuracy: clean 0.9918 (best 0.9918) poison 1.0001 (best 1.0001)
+
+POISON-Test [45]: Loss: clean 0.0258 poison 0.0000, Accuracy: clean 0.9925 (best 0.9918) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [46]: Loss: clean 0.0262 poison 0.0000, Accuracy: clean 0.9922 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [47]: Loss: clean 0.0271 poison 0.0000, Accuracy: clean 0.9920 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [48]: Loss: clean 0.0283 poison 0.0000, Accuracy: clean 0.9908 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [49]: Loss: clean 0.0285 poison 0.0000, Accuracy: clean 0.9904 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [50]: Loss: clean 0.0279 poison 0.0000, Accuracy: clean 0.9911 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [51]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9922 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [52]: Loss: clean 0.0263 poison 0.0000, Accuracy: clean 0.9921 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [53]: Loss: clean 0.0265 poison 0.0000, Accuracy: clean 0.9917 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [54]: Loss: clean 0.0267 poison 0.0000, Accuracy: clean 0.9911 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [55]: Loss: clean 0.0263 poison 0.0000, Accuracy: clean 0.9917 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [56]: Loss: clean 0.0273 poison 0.0000, Accuracy: clean 0.9916 (best 0.9925) poison 1.0001 (best 1.0001)
+
+POISON-Test [57]: Loss: clean 0.0269 poison 0.0000, Accuracy: clean 0.9926 (best 0.9925) poison 1.0001 (best 1.0001)
+Saving current best model in experiments/all2one_1/mnist/mnist_cnn/lr0.01-lratk0.01-eps0.3-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.3_sgd.ph
+
+POISON-Test [58]: Loss: clean 0.0261 poison 0.0000, Accuracy: clean 0.9915 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [59]: Loss: clean 0.0258 poison 0.0000, Accuracy: clean 0.9912 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [60]: Loss: clean 0.0267 poison 0.0000, Accuracy: clean 0.9913 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [61]: Loss: clean 0.0272 poison 0.0000, Accuracy: clean 0.9912 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [62]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9915 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [63]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9914 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [64]: Loss: clean 0.0275 poison 0.0000, Accuracy: clean 0.9915 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [65]: Loss: clean 0.0280 poison 0.0000, Accuracy: clean 0.9914 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [66]: Loss: clean 0.0272 poison 0.0000, Accuracy: clean 0.9918 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [67]: Loss: clean 0.0271 poison 0.0000, Accuracy: clean 0.9921 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [68]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9920 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [69]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9913 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [70]: Loss: clean 0.0287 poison 0.0000, Accuracy: clean 0.9908 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [71]: Loss: clean 0.0278 poison 0.0000, Accuracy: clean 0.9911 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [72]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9910 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [73]: Loss: clean 0.0273 poison 0.0000, Accuracy: clean 0.9914 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [74]: Loss: clean 0.0271 poison 0.0000, Accuracy: clean 0.9911 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [75]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9916 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [76]: Loss: clean 0.0278 poison 0.0000, Accuracy: clean 0.9906 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [77]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9915 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [78]: Loss: clean 0.0284 poison 0.0000, Accuracy: clean 0.9907 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [79]: Loss: clean 0.0267 poison 0.0000, Accuracy: clean 0.9917 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [80]: Loss: clean 0.0266 poison 0.0000, Accuracy: clean 0.9915 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [81]: Loss: clean 0.0265 poison 0.0000, Accuracy: clean 0.9920 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [82]: Loss: clean 0.0285 poison 0.0000, Accuracy: clean 0.9913 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [83]: Loss: clean 0.0278 poison 0.0000, Accuracy: clean 0.9914 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [84]: Loss: clean 0.0270 poison 0.0000, Accuracy: clean 0.9916 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [85]: Loss: clean 0.0273 poison 0.0000, Accuracy: clean 0.9919 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [86]: Loss: clean 0.0272 poison 0.0000, Accuracy: clean 0.9909 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [87]: Loss: clean 0.0290 poison 0.0000, Accuracy: clean 0.9910 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [88]: Loss: clean 0.0272 poison 0.0000, Accuracy: clean 0.9908 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [89]: Loss: clean 0.0282 poison 0.0000, Accuracy: clean 0.9916 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [90]: Loss: clean 0.0260 poison 0.0000, Accuracy: clean 0.9921 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [91]: Loss: clean 0.0268 poison 0.0000, Accuracy: clean 0.9918 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [92]: Loss: clean 0.0265 poison 0.0000, Accuracy: clean 0.9905 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [93]: Loss: clean 0.0258 poison 0.0000, Accuracy: clean 0.9919 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [94]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9905 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [95]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9920 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [96]: Loss: clean 0.0274 poison 0.0000, Accuracy: clean 0.9920 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [97]: Loss: clean 0.0272 poison 0.0000, Accuracy: clean 0.9913 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [98]: Loss: clean 0.0285 poison 0.0000, Accuracy: clean 0.9906 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [99]: Loss: clean 0.0276 poison 0.0000, Accuracy: clean 0.9910 (best 0.9926) poison 1.0001 (best 1.0001)
+
+POISON-Test [100]: Loss: clean 0.0278 poison 0.0000, Accuracy: clean 0.9912 (best 0.9926) poison 1.0001 (best 1.0001)

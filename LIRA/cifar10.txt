@@ -1,0 +1,324 @@
+====> ARGS
+Namespace(alpha=0.5, attack_model='autoencoder', avoid_clsmodel_reinitialization=True, batch_size=64, best_threshold=0.1, cls_test_epochs=5, clsmodel='vgg11', data_root='../../data', dataset='cifar10', epochs=100, epochs_per_external_eval=10, eps=0.01, lr=0.01, lr_atk=0.01, mode='all2one', num_workers=2, path='experiments/', pretensor_transform=False, random_crop=5, random_rotation=10, save_model=False, schedulerC_lambda=0.1, schedulerC_milestones=[50, 100, 150, 200], seed=999, target_label=1, test_alpha=0.5, test_epochs=100, test_eps=0.01, test_lr=0.01, test_n_size=10, test_optimizer='sgd', test_use_train_best=True, test_use_train_last=False, train_epoch=1, use_data_parallel=False, verbose=2)
+Will save test model at experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+Load atkmodel and classifier states from best training: experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/bestmodel.ckpt
+Loading best model from experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/bestmodel.ckpt
+VGG(
+  (features): Sequential(
+    (0): Conv2D(3, 64, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (1): ReLU()
+    (2): MaxPool2D(kernel_size=2, stride=2, padding=0)
+    (3): Conv2D(64, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (4): ReLU()
+    (5): MaxPool2D(kernel_size=2, stride=2, padding=0)
+    (6): Conv2D(128, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (7): ReLU()
+    (8): Conv2D(256, 256, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (9): ReLU()
+    (10): MaxPool2D(kernel_size=2, stride=2, padding=0)
+    (11): Conv2D(256, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (12): ReLU()
+    (13): Conv2D(512, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (14): ReLU()
+    (15): MaxPool2D(kernel_size=2, stride=2, padding=0)
+    (16): Conv2D(512, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (17): ReLU()
+    (18): Conv2D(512, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+    (19): ReLU()
+    (20): MaxPool2D(kernel_size=2, stride=2, padding=0)
+  )
+  (avgpool): AdaptiveAvgPool2D(output_size=(7, 7))
+  (classifier): Sequential(
+    (0): Linear(in_features=25088, out_features=4096, dtype=float32)
+    (1): ReLU()
+    (2): Dropout(p=0.5, axis=None, mode=upscale_in_train)
+    (3): Linear(in_features=4096, out_features=4096, dtype=float32)
+    (4): ReLU()
+    (5): Dropout(p=0.5, axis=None, mode=upscale_in_train)
+    (6): Linear(in_features=4096, out_features=10, dtype=float32)
+  )
+)
+<paddle.optimizer.momentum.Momentum object at 0x7f840e47ef10>
+<paddle.optimizer.lr.MultiStepDecay object at 0x7f840e47e510>
+====> Post tensor transform
+PostTensorTransform()
+
+POISON-Test [1]: Loss: clean 1.4351 poison 0.5461, Accuracy: clean 0.5730 (best 0.0000) poison 0.7084 (best 0.0000)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [2]: Loss: clean 1.3381 poison 0.6128, Accuracy: clean 0.6162 (best 0.5730) poison 0.6891 (best 0.7084)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [3]: Loss: clean 1.5347 poison 0.3653, Accuracy: clean 0.5488 (best 0.6162) poison 0.8330 (best 0.6891)
+
+POISON-Test [4]: Loss: clean 1.4168 poison 0.3432, Accuracy: clean 0.5750 (best 0.6162) poison 0.8527 (best 0.6891)
+
+POISON-Test [5]: Loss: clean 1.5556 poison 0.2409, Accuracy: clean 0.5390 (best 0.6162) poison 0.9103 (best 0.6891)
+
+POISON-Test [6]: Loss: clean 1.2904 poison 0.4092, Accuracy: clean 0.6323 (best 0.6162) poison 0.8216 (best 0.6891)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [7]: Loss: clean 1.4049 poison 0.3188, Accuracy: clean 0.6031 (best 0.6323) poison 0.8708 (best 0.8216)
+
+POISON-Test [8]: Loss: clean 1.3248 poison 0.3469, Accuracy: clean 0.6311 (best 0.6323) poison 0.8534 (best 0.8216)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [9]: Loss: clean 1.3153 poison 0.3657, Accuracy: clean 0.6460 (best 0.6311) poison 0.8446 (best 0.8534)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [10]: Loss: clean 1.3498 poison 0.3276, Accuracy: clean 0.6290 (best 0.6460) poison 0.8592 (best 0.8446)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [11]: Loss: clean 1.3951 poison 0.3011, Accuracy: clean 0.6235 (best 0.6290) poison 0.8731 (best 0.8592)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [12]: Loss: clean 1.3609 poison 0.2877, Accuracy: clean 0.6339 (best 0.6235) poison 0.8779 (best 0.8731)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [13]: Loss: clean 1.3233 poison 0.4003, Accuracy: clean 0.6539 (best 0.6339) poison 0.8423 (best 0.8779)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [14]: Loss: clean 1.3805 poison 0.3190, Accuracy: clean 0.6446 (best 0.6539) poison 0.8780 (best 0.8423)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [15]: Loss: clean 1.3957 poison 0.4057, Accuracy: clean 0.6523 (best 0.6446) poison 0.8502 (best 0.8780)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [16]: Loss: clean 1.4316 poison 0.3302, Accuracy: clean 0.6320 (best 0.6523) poison 0.8717 (best 0.8502)
+
+POISON-Test [17]: Loss: clean 1.3825 poison 0.2701, Accuracy: clean 0.6288 (best 0.6523) poison 0.8860 (best 0.8502)
+
+POISON-Test [18]: Loss: clean 1.3456 poison 0.3830, Accuracy: clean 0.6628 (best 0.6523) poison 0.8510 (best 0.8502)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [19]: Loss: clean 1.3243 poison 0.4847, Accuracy: clean 0.6720 (best 0.6628) poison 0.8431 (best 0.8510)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [20]: Loss: clean 1.4778 poison 0.3358, Accuracy: clean 0.6354 (best 0.6720) poison 0.8789 (best 0.8431)
+
+POISON-Test [21]: Loss: clean 1.4907 poison 0.3081, Accuracy: clean 0.6344 (best 0.6720) poison 0.8934 (best 0.8431)
+
+POISON-Test [22]: Loss: clean 1.8007 poison 0.3216, Accuracy: clean 0.6214 (best 0.6720) poison 0.9021 (best 0.8431)
+
+POISON-Test [23]: Loss: clean 1.4537 poison 0.4036, Accuracy: clean 0.6531 (best 0.6720) poison 0.8713 (best 0.8431)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [24]: Loss: clean 1.4784 poison 0.4064, Accuracy: clean 0.6519 (best 0.6531) poison 0.8607 (best 0.8713)
+
+POISON-Test [25]: Loss: clean 1.4316 poison 0.3689, Accuracy: clean 0.6452 (best 0.6531) poison 0.8805 (best 0.8713)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [26]: Loss: clean 1.3945 poison 0.3246, Accuracy: clean 0.6510 (best 0.6452) poison 0.8904 (best 0.8805)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [27]: Loss: clean 1.4180 poison 0.4158, Accuracy: clean 0.6665 (best 0.6510) poison 0.8698 (best 0.8904)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [28]: Loss: clean 1.5300 poison 0.2990, Accuracy: clean 0.6424 (best 0.6665) poison 0.8931 (best 0.8698)
+
+POISON-Test [29]: Loss: clean 1.5070 poison 0.4162, Accuracy: clean 0.6624 (best 0.6665) poison 0.8791 (best 0.8698)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [30]: Loss: clean 1.6010 poison 0.3584, Accuracy: clean 0.6476 (best 0.6624) poison 0.8901 (best 0.8791)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [31]: Loss: clean 1.8477 poison 0.2676, Accuracy: clean 0.6205 (best 0.6476) poison 0.9137 (best 0.8901)
+
+POISON-Test [32]: Loss: clean 1.5413 poison 0.4103, Accuracy: clean 0.6498 (best 0.6476) poison 0.8739 (best 0.8901)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [33]: Loss: clean 1.5146 poison 0.3403, Accuracy: clean 0.6442 (best 0.6498) poison 0.8918 (best 0.8739)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [34]: Loss: clean 1.5596 poison 0.3458, Accuracy: clean 0.6473 (best 0.6442) poison 0.8963 (best 0.8918)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [35]: Loss: clean 1.4021 poison 0.3707, Accuracy: clean 0.6672 (best 0.6473) poison 0.8793 (best 0.8963)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [36]: Loss: clean 1.4365 poison 0.4488, Accuracy: clean 0.6689 (best 0.6672) poison 0.8697 (best 0.8793)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [37]: Loss: clean 1.4530 poison 0.3743, Accuracy: clean 0.6725 (best 0.6689) poison 0.8795 (best 0.8697)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [38]: Loss: clean 1.7333 poison 0.3337, Accuracy: clean 0.6343 (best 0.6725) poison 0.9051 (best 0.8795)
+
+POISON-Test [39]: Loss: clean 1.3747 poison 0.6459, Accuracy: clean 0.6892 (best 0.6725) poison 0.8312 (best 0.8795)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [40]: Loss: clean 1.4709 poison 0.2681, Accuracy: clean 0.6360 (best 0.6892) poison 0.9057 (best 0.8312)
+
+POISON-Test [41]: Loss: clean 1.5346 poison 0.3147, Accuracy: clean 0.6423 (best 0.6892) poison 0.8941 (best 0.8312)
+
+POISON-Test [42]: Loss: clean 1.4998 poison 0.4265, Accuracy: clean 0.6733 (best 0.6892) poison 0.8728 (best 0.8312)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [43]: Loss: clean 1.3956 poison 0.3901, Accuracy: clean 0.6708 (best 0.6733) poison 0.8769 (best 0.8728)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [44]: Loss: clean 1.5259 poison 0.2728, Accuracy: clean 0.6388 (best 0.6708) poison 0.9085 (best 0.8769)
+
+POISON-Test [45]: Loss: clean 1.4385 poison 0.3952, Accuracy: clean 0.6780 (best 0.6708) poison 0.8841 (best 0.8769)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [46]: Loss: clean 1.5011 poison 0.3130, Accuracy: clean 0.6561 (best 0.6780) poison 0.9022 (best 0.8841)
+
+POISON-Test [47]: Loss: clean 1.4207 poison 0.5057, Accuracy: clean 0.6801 (best 0.6780) poison 0.8642 (best 0.8841)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [48]: Loss: clean 1.4777 poison 0.4663, Accuracy: clean 0.6696 (best 0.6801) poison 0.8743 (best 0.8642)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [49]: Loss: clean 1.3880 poison 0.3742, Accuracy: clean 0.6679 (best 0.6696) poison 0.8852 (best 0.8743)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [50]: Loss: clean 1.5368 poison 0.3380, Accuracy: clean 0.6529 (best 0.6679) poison 0.8973 (best 0.8852)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [51]: Loss: clean 1.5166 poison 0.4878, Accuracy: clean 0.7032 (best 0.6529) poison 0.8898 (best 0.8973)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [52]: Loss: clean 1.7907 poison 0.5432, Accuracy: clean 0.6984 (best 0.7032) poison 0.8985 (best 0.8898)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [53]: Loss: clean 1.9308 poison 0.6902, Accuracy: clean 0.7045 (best 0.6984) poison 0.8910 (best 0.8985)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [54]: Loss: clean 2.0892 poison 0.7916, Accuracy: clean 0.7047 (best 0.7045) poison 0.8897 (best 0.8910)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [55]: Loss: clean 2.2419 poison 0.8075, Accuracy: clean 0.7029 (best 0.7047) poison 0.8941 (best 0.8897)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [56]: Loss: clean 2.2697 poison 0.8657, Accuracy: clean 0.7014 (best 0.7029) poison 0.8915 (best 0.8941)
+
+POISON-Test [57]: Loss: clean 2.3255 poison 0.8544, Accuracy: clean 0.7018 (best 0.7029) poison 0.8944 (best 0.8941)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [58]: Loss: clean 2.3231 poison 0.8641, Accuracy: clean 0.7023 (best 0.7018) poison 0.8934 (best 0.8944)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [59]: Loss: clean 2.3856 poison 0.8779, Accuracy: clean 0.7000 (best 0.7023) poison 0.8959 (best 0.8934)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [60]: Loss: clean 2.3238 poison 0.9044, Accuracy: clean 0.7026 (best 0.7000) poison 0.8921 (best 0.8959)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [61]: Loss: clean 2.3211 poison 0.8513, Accuracy: clean 0.7037 (best 0.7026) poison 0.8952 (best 0.8921)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [62]: Loss: clean 2.2949 poison 0.8850, Accuracy: clean 0.7047 (best 0.7037) poison 0.8921 (best 0.8952)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [63]: Loss: clean 2.3282 poison 0.8538, Accuracy: clean 0.7011 (best 0.7047) poison 0.8957 (best 0.8921)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [64]: Loss: clean 2.3229 poison 0.8561, Accuracy: clean 0.7041 (best 0.7011) poison 0.8944 (best 0.8957)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [65]: Loss: clean 2.2569 poison 0.9130, Accuracy: clean 0.7069 (best 0.7041) poison 0.8898 (best 0.8944)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [66]: Loss: clean 2.2934 poison 0.8779, Accuracy: clean 0.7058 (best 0.7069) poison 0.8934 (best 0.8898)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [67]: Loss: clean 2.2913 poison 0.8975, Accuracy: clean 0.7055 (best 0.7058) poison 0.8924 (best 0.8934)
+
+POISON-Test [68]: Loss: clean 2.3170 poison 0.8606, Accuracy: clean 0.7037 (best 0.7058) poison 0.8941 (best 0.8934)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [69]: Loss: clean 2.2841 poison 0.8861, Accuracy: clean 0.7048 (best 0.7037) poison 0.8931 (best 0.8941)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [70]: Loss: clean 2.2599 poison 0.9140, Accuracy: clean 0.7066 (best 0.7048) poison 0.8907 (best 0.8931)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [71]: Loss: clean 2.2383 poison 0.9372, Accuracy: clean 0.7071 (best 0.7066) poison 0.8894 (best 0.8907)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [72]: Loss: clean 2.2403 poison 0.9198, Accuracy: clean 0.7062 (best 0.7071) poison 0.8894 (best 0.8894)
+
+POISON-Test [73]: Loss: clean 2.3308 poison 0.8604, Accuracy: clean 0.7023 (best 0.7071) poison 0.8961 (best 0.8894)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [74]: Loss: clean 2.2717 poison 0.8983, Accuracy: clean 0.7046 (best 0.7023) poison 0.8916 (best 0.8961)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [75]: Loss: clean 2.2484 poison 0.9011, Accuracy: clean 0.7082 (best 0.7046) poison 0.8924 (best 0.8916)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [76]: Loss: clean 2.1713 poison 0.9500, Accuracy: clean 0.7132 (best 0.7082) poison 0.8875 (best 0.8924)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [77]: Loss: clean 2.2421 poison 0.9028, Accuracy: clean 0.7075 (best 0.7132) poison 0.8915 (best 0.8875)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [78]: Loss: clean 2.1888 poison 0.9084, Accuracy: clean 0.7092 (best 0.7075) poison 0.8912 (best 0.8915)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [79]: Loss: clean 2.1539 poison 0.9187, Accuracy: clean 0.7100 (best 0.7092) poison 0.8889 (best 0.8912)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [80]: Loss: clean 2.1722 poison 0.9090, Accuracy: clean 0.7100 (best 0.7100) poison 0.8912 (best 0.8889)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [81]: Loss: clean 2.2142 poison 0.8807, Accuracy: clean 0.7032 (best 0.7100) poison 0.8925 (best 0.8912)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [82]: Loss: clean 2.2309 poison 0.8851, Accuracy: clean 0.7058 (best 0.7032) poison 0.8933 (best 0.8925)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [83]: Loss: clean 2.1572 poison 0.8802, Accuracy: clean 0.7088 (best 0.7058) poison 0.8906 (best 0.8933)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [84]: Loss: clean 2.1768 poison 0.8828, Accuracy: clean 0.7084 (best 0.7088) poison 0.8914 (best 0.8906)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [85]: Loss: clean 2.1563 poison 0.8671, Accuracy: clean 0.7074 (best 0.7084) poison 0.8914 (best 0.8914)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [86]: Loss: clean 2.1390 poison 0.8742, Accuracy: clean 0.7077 (best 0.7074) poison 0.8933 (best 0.8914)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [87]: Loss: clean 2.1578 poison 0.8514, Accuracy: clean 0.7057 (best 0.7077) poison 0.8941 (best 0.8933)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [88]: Loss: clean 2.1138 poison 0.9246, Accuracy: clean 0.7104 (best 0.7057) poison 0.8891 (best 0.8941)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [89]: Loss: clean 2.1106 poison 0.8943, Accuracy: clean 0.7061 (best 0.7104) poison 0.8916 (best 0.8891)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [90]: Loss: clean 2.1323 poison 0.8772, Accuracy: clean 0.7097 (best 0.7061) poison 0.8934 (best 0.8916)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [91]: Loss: clean 2.1580 poison 0.8776, Accuracy: clean 0.7073 (best 0.7097) poison 0.8940 (best 0.8934)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [92]: Loss: clean 2.0581 poison 0.9166, Accuracy: clean 0.7090 (best 0.7073) poison 0.8885 (best 0.8940)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [93]: Loss: clean 2.0744 poison 0.9120, Accuracy: clean 0.7108 (best 0.7090) poison 0.8890 (best 0.8885)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [94]: Loss: clean 2.0942 poison 0.8710, Accuracy: clean 0.7056 (best 0.7108) poison 0.8935 (best 0.8890)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [95]: Loss: clean 2.0838 poison 0.8549, Accuracy: clean 0.7090 (best 0.7056) poison 0.8928 (best 0.8935)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [96]: Loss: clean 2.0792 poison 0.8563, Accuracy: clean 0.7077 (best 0.7090) poison 0.8936 (best 0.8928)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [97]: Loss: clean 2.0525 poison 0.9010, Accuracy: clean 0.7117 (best 0.7077) poison 0.8894 (best 0.8936)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [98]: Loss: clean 2.1322 poison 0.8381, Accuracy: clean 0.7031 (best 0.7117) poison 0.8970 (best 0.8894)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [99]: Loss: clean 2.1141 poison 0.8512, Accuracy: clean 0.7044 (best 0.7031) poison 0.8949 (best 0.8970)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
+
+POISON-Test [100]: Loss: clean 2.0383 poison 0.8950, Accuracy: clean 0.7096 (best 0.7044) poison 0.8895 (best 0.8949)
+Saving current best model in experiments/all2one_1/cifar10/vgg11/lr0.01-lratk0.01-eps0.01-alpha0.5-clsepoch1-atkmodelautoencoder/poisoned_classifier_0.5_0.01_sgd.ph
